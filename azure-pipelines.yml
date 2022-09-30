@@ -16,6 +16,12 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription – MPN (39ab30c3-d269-4aa8-972d-0f873ae5d3ef)'
+    KeyVaultName: 'GPA-KVault1'
+    SecretsFilter: '*'
+    RunAsPreJob: false
     npm install
     npm run build
   displayName: 'npm install and build'
